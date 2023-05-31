@@ -1,0 +1,39 @@
+package seleniumpractice;
+
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
+public class vtiger {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		WebDriver driver = setUp ("chrome");
+		driver.get("htpps://demo.vtiger.com/vtigercrm/index.php");
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+        System.out.println("Login page title: = "  + driver.getTitle());
+        
+        //login
+        
+        driver.findElement(By.id("Username")).sendKeys("");
+        driver.findElement(By.name("password")).sendKeys("");
+        driver.findElement(By.className("buttonBlue")).click();
+        
+        //logout
+        
+        driver.findElement(By.className("fa-user")).click();
+        driver.findElement(By.id("menubar_item_right_LBL_Sign_Out")).click();
+        
+        //close
+        
+        driver.close();
+        
+        
+        
+        		
+	}
+
+}
